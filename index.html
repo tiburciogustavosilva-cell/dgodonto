@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DG Odontologia | Ortodontia, Implantes e Estética na Asa Norte, Brasília</title>
+    <meta
+      name="description"
+      content="Há 14 anos transformando sorrisos em Brasília. Ortodontia, implantes e odontologia estética com alta tecnologia na Asa Norte."
+    />
+    <meta name="theme-color" content="#FFFFFF" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DG Odontologia" />
+    <meta property="og:title" content="DG Odontologia | Ortodontia, Implantes e Estética em Brasília" />
+    <meta property="og:description" content="Há 14 anos transformando sorrisos com alta tecnologia na Asa Norte, Brasília." />
+    <!-- WhatsApp/Facebook só leem og:image com URL ABSOLUTA. Ao publicar, troque DOMINIO pelo endereço final
+         (ex.: https://dgodontologia.com.br/assets/og-dg.jpg) nas 3 linhas com DOMINIO abaixo. -->
+    <meta property="og:url" content="https://DOMINIO/" />
+    <meta property="og:image" content="https://DOMINIO/assets/og-dg.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo DG Odontologia" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://DOMINIO/assets/og-dg.jpg" />
+    <!-- Fotos: banco gratuito (Unsplash) como provisórias. Trocar pelas fotos reais da clínica quando houver. -->
+
+    <link rel="icon" href="assets/logo-dg.png" />
+    <link rel="apple-touch-icon" href="assets/logo-dg.png" />
+    <link rel="preload" as="image" href="assets/hero-consulta.jpg" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+    <header class="header" id="topo">
+      <div class="container header__inner">
+        <a href="#topo" class="logo" aria-label="DG Odontologia, voltar ao início">
+          <img src="assets/logo-dg.png" alt="DG Odontologia" width="256" height="256" />
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Principal">
+          <ul>
+            <li><a href="#tratamentos">Tratamentos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#estrutura">Estrutura</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
+            <li><a href="#localizacao">Endereço</a></li>
+          </ul>
+        </nav>
+
+        <a
+          href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--primary btn--sm header__cta"
+          >Agendar consulta</a
+        >
+
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu de navegação">
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="conteudo-principal">
+      <!-- HERO -->
+      <section class="hero" aria-label="Apresentação">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <p class="eyebrow enter" style="--i: 0">Clínica odontológica na Asa Norte, Brasília</p>
+            <h1 class="enter" style="--i: 1">Há 14 anos <em>transformando sorrisos</em> e mudando vidas</h1>
+            <p class="hero__lede enter" style="--i: 2">
+              Ortodontia, implantes e estética dental com alta tecnologia e um plano de tratamento pensado para você.
+            </p>
+            <div class="hero__actions enter" style="--i: 3">
+              <a
+                href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary"
+                >Agendar consulta</a
+              >
+              <a href="#tratamentos" class="btn btn--ghost">Ver tratamentos</a>
+            </div>
+          </div>
+
+          <figure class="hero__media">
+            <img
+              src="assets/hero-consulta.jpg"
+              alt="Dentista conversando com paciente sorridente no consultório"
+              width="1600"
+              height="1200"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- CREDENCIAIS -->
+      <section class="stats" aria-label="Credenciais">
+        <dl class="container stats__grid reveal">
+          <div>
+            <dt>14 anos</dt>
+            <dd>cuidando de sorrisos em Brasília</dd>
+          </div>
+          <div>
+            <dt>Referência</dt>
+            <dd>em ortodontia, implantes e estética</dd>
+          </div>
+          <div>
+            <dt>Tecnologia</dt>
+            <dd>equipamentos modernos para diagnóstico preciso</dd>
+          </div>
+          <div>
+            <dt>Convênios</dt>
+            <dd>consulte os planos aceitos pelo WhatsApp</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- TRATAMENTOS -->
+      <section class="section section--alt" id="tratamentos">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Tratamentos para cada fase do seu sorriso</h2>
+            <p>Tudo começa com uma avaliação completa. Você entende o seu caso antes de qualquer procedimento.</p>
+          </header>
+
+          <ul class="cards">
+            <li class="reveal">
+              <img src="assets/ortodontia-alinhadores.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async" />
+              <div class="cards__body">
+                <h3>Ortodontia</h3>
+                <p>Aparelhos fixos e alinhadores invisíveis para dentes alinhados e mordida correta.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <img src="assets/implante.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async" />
+              <div class="cards__body">
+                <h3>Implantes dentários</h3>
+                <p>Reposição de dentes perdidos com firmeza e aparência natural.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <img src="assets/estetica-sorriso.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async" />
+              <div class="cards__body">
+                <h3>Estética dental</h3>
+                <p>Lentes, facetas e clareamento para um sorriso harmônico.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <img src="assets/bruxismo-exame.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async" />
+              <div class="cards__body">
+                <h3>Bruxismo</h3>
+                <p>Diagnóstico e placas para aliviar o ranger de dentes e proteger o esmalte.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <img src="assets/clinica-geral.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async" />
+              <div class="cards__body">
+                <h3>Clínica geral</h3>
+                <p>Limpeza, restaurações e prevenção para manter a saúde bucal em dia.</p>
+              </div>
+            </li>
+            <li class="reveal cards__cta">
+              <div class="cards__body">
+                <h3>Não sabe qual tratamento é o ideal?</h3>
+                <p>Na avaliação, montamos um plano para o seu caso.</p>
+                <a href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Agendar consulta</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SOBRE -->
+      <section class="section" id="sobre">
+        <div class="container pro">
+          <figure class="pro__media reveal">
+            <img
+              src="assets/equipe-atendimento.jpg"
+              alt="Equipe da clínica realizando atendimento com equipamentos de proteção"
+              width="1600"
+              height="2400"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="pro__text reveal">
+            <p class="eyebrow">Quem cuida de você</p>
+            <h2>DG Odontologia</h2>
+            <p class="pro__role">Clínica estética e odontológica na Asa Norte</p>
+
+            <blockquote class="pro__quote">
+              <p>“Um sorriso bem cuidado muda a forma como você se vê e como o mundo te vê. É isso que entregamos há 14 anos.”</p>
+            </blockquote>
+
+            <dl class="pro__facts">
+              <div>
+                <dt>Plano de tratamento individual</dt>
+                <dd>Cada caso avaliado com calma, sem procedimento empurrado</dd>
+              </div>
+              <div>
+                <dt>Alta tecnologia</dt>
+                <dd>Diagnóstico preciso e tratamentos mais confortáveis</dd>
+              </div>
+              <div>
+                <dt>Biossegurança</dt>
+                <dd>Esterilização e protocolos rigorosos em cada atendimento</dd>
+              </div>
+              <div>
+                <dt>Convênios e parcelamento</dt>
+                <dd>Planos odontológicos aceitos e pagamento facilitado</dd>
+              </div>
+            </dl>
+            <a
+              href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary pro__cta"
+              >Agendar consulta</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ESTRUTURA -->
+      <section class="section section--alt" id="estrutura">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Um consultório pensado para o seu conforto</h2>
+            <p>Ambiente climatizado, equipamentos atualizados e uma recepção tranquila para você chegar sem pressa.</p>
+          </header>
+
+          <div class="gallery">
+            <figure class="reveal gallery__main">
+              <img src="assets/consultorio.jpg" alt="Consultório amplo e iluminado com cadeira odontológica" width="1600" height="1070" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="reveal">
+              <img src="assets/sala-espera.jpg" alt="Sala de espera com poltronas e iluminação suave" width="1600" height="1872" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="reveal">
+              <img src="assets/cadeira.jpg" alt="Cadeira odontológica moderna em sala clara" width="1600" height="1067" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS -->
+      <!-- TODO: substituir por avaliações reais (Google ou Instagram) com autorização dos pacientes -->
+      <section class="section" id="depoimentos">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Quem já sorri com a DG</h2>
+          </header>
+
+          <ul class="quotes" tabindex="0" aria-label="Depoimentos de pacientes">
+            <li class="reveal">
+              <blockquote>Fiz meu tratamento com alinhadores e o acompanhamento foi impecável. Hoje sorrio sem vergonha nas fotos.</blockquote>
+              <p><strong>Larissa C.</strong> Ortodontia</p>
+            </li>
+            <li class="reveal">
+              <blockquote>Tinha medo de implante e explicaram cada etapa. Não senti dor e o resultado ficou natural.</blockquote>
+              <p><strong>Roberto M.</strong> Implante dentário</p>
+            </li>
+            <li class="reveal">
+              <blockquote>Atendimento pontual, clínica limpíssima e uma equipe que realmente escuta. Recomendo de olhos fechados.</blockquote>
+              <p><strong>Ana Paula F.</strong> Clareamento</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--alt" id="faq">
+        <div class="container faq">
+          <div class="faq__intro reveal">
+            <h2>Perguntas que recebemos com frequência</h2>
+            <p>Não encontrou sua dúvida? Mande uma mensagem, respondemos rápido.</p>
+            <a
+              href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary faq__cta"
+              >Agendar consulta</a
+            >
+          </div>
+
+          <div class="faq__list reveal">
+            <details>
+              <summary>Vocês atendem convênio?</summary>
+              <p>Sim. Atendemos alguns planos odontológicos. Envie o nome do seu plano pelo WhatsApp e confirmamos a cobertura.</p>
+            </details>
+            <details>
+              <summary>O implante dói?</summary>
+              <p>O procedimento é feito com anestesia local e é bem tolerado. O pós-operatório costuma ser tranquilo, com orientações detalhadas da equipe.</p>
+            </details>
+            <details>
+              <summary>Quanto tempo dura um tratamento ortodôntico?</summary>
+              <p>Depende de cada caso. Na avaliação, você recebe uma estimativa de prazo e as opções de aparelho indicadas para você.</p>
+            </details>
+            <details>
+              <summary>Alinhador invisível funciona para qualquer caso?</summary>
+              <p>Funciona para a maioria dos casos. Na avaliação indicamos se o alinhador ou o aparelho fixo é o melhor caminho para você.</p>
+            </details>
+            <details>
+              <summary>Quais formas de pagamento são aceitas?</summary>
+              <p>Cartão de crédito com parcelamento, débito e Pix. As condições são apresentadas junto ao seu plano de tratamento.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCALIZAÇÃO -->
+      <section class="location" id="localizacao">
+        <iframe
+          src="https://www.google.com/maps?q=Edif%C3%ADcio+Jaime+Leal+-+Asa+Norte,+Bras%C3%ADlia+-+DF&output=embed"
+          title="Mapa com a localização da DG Odontologia"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <div class="container">
+          <div class="location__card reveal">
+            <h2>Fácil de encontrar, fácil de chegar</h2>
+            <!-- TODO: confirmar endereço completo (bloco/sala) com a clínica -->
+            <address>
+              <strong>Edifício Jaime Leal</strong><br />
+              Asa Norte, Brasília - DF
+            </address>
+            <div class="location__actions">
+              <a
+                href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary btn--sm"
+                >Agendar consulta</a
+              >
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio%20Jaime%20Leal%20-%20Asa%20Norte%2C%20Bras%C3%ADlia%20-%20DF"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--ghost btn--sm"
+                >Google Maps</a
+              >
+              <a
+                href="https://waze.com/ul?q=Edif%C3%ADcio%20Jaime%20Leal%20-%20Asa%20Norte%2C%20Bras%C3%ADlia%20-%20DF&navigate=yes"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--ghost btn--sm"
+                >Waze</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section">
+        <div class="container">
+          <div class="cta-band reveal">
+            <h2>Seu novo sorriso começa com uma consulta</h2>
+            <p>Avaliação completa, plano de tratamento claro e atendimento na Asa Norte.</p>
+            <a
+              href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary"
+              >Agendar consulta</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <img class="footer__logo" src="assets/logo-dg.png" alt="DG Odontologia" width="256" height="256" loading="lazy" />
+            <p>Há 14 anos transformando sorrisos com ortodontia, implantes e estética dental na Asa Norte, Brasília.</p>
+          </div>
+
+          <div>
+            <h3>Navegação</h3>
+            <ul>
+              <li><a href="#tratamentos">Tratamentos</a></li>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#estrutura">Estrutura</a></li>
+              <li><a href="#faq">Dúvidas frequentes</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contato</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >WhatsApp</a
+                >
+              </li>
+              <li><a href="https://www.instagram.com/dgodontodf/" target="_blank" rel="noopener noreferrer">Instagram @dgodontodf</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Endereço</h3>
+            <p>Edifício Jaime Leal<br />Asa Norte, Brasília - DF</p>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span>© <span id="anoAtual">2026</span> DG Odontologia. Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/556181386671?text=Ol%C3%A1!%20Gostei%20muito%20dessa%20landing%20page%20e%20quero%20contratar%20uma%20p%C3%A1gina%20assim%20para%20o%20meu%20neg%C3%B3cio.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
