@@ -1,51 +1,40 @@
-# Gera a imagem Docker a cada push na main, publica no GitHub Container Registry
-# (ghcr.io/tiburciogustavosilva-cell/dgodonto) e, se configurado, avisa o Portainer
-# para atualizar a stack.
-#
-# Opcional: em Settings > Secrets and variables > Actions, crie o secret
-# PORTAINER_WEBHOOK_URL com o webhook do serviço (Portainer > Services > dgodonto > Service webhook).
-
-name: Docker
+name: docker-build
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
-  packages: write
-
-env:
-  IMAGE: ghcr.io/${{ github.repository }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      WEBHOOK: ${{ secrets.PORTAINER_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: docker/setup-buildx-action@v3
 
+      # Só publica quando a mudança entrou na main; em pull request, só confere se builda.
       - uses: docker/login-action@v3
+        if: github.event_name == 'push'
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: aquilacond
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: aquilacond/dgodonto
+          tags: |
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64
-          push: true
-          tags: |
-            ${{ env.IMAGE }}:latest
-            ${{ env.IMAGE }}:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Atualizar stack no Portainer
-        if: env.WEBHOOK != ''
-        run: curl -fsS -X POST "$WEBHOOK"
+          push: ${{ github.event_name == 'push' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

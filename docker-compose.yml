@@ -1,7 +1,7 @@
 services:
 
   dgodonto:
-    image: ghcr.io/tiburciogustavosilva-cell/dgodonto:latest
+    image: aquilacond/dgodonto:latest
 
     networks:
       - dgodontoNet
