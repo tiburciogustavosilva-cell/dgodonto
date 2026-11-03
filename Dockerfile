@@ -4,8 +4,10 @@ FROM nginx:1.27-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY index.html cartao.html styles.css script.js /usr/share/nginx/html/
+COPY index.html smart-card.html styles.css script.js /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
+# Garante leitura pelo Nginx mesmo se o build vier de um disco com permissões restritas
+RUN chmod -R a+rX /usr/share/nginx/html
 
 EXPOSE 80
 

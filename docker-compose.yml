@@ -4,7 +4,7 @@ services:
     image: aquilacond/dgodonto:latest
 
     networks:
-      - dgodontoNet
+      - aquilaNet
 
     deploy:
       labels:
@@ -12,11 +12,12 @@ services:
         - traefik.http.routers.dgodonto.rule=Host(`dgodontologia.com.br`) || Host(`www.dgodontologia.com.br`)
         - traefik.http.routers.dgodonto.entrypoints=websecure
         - traefik.http.routers.dgodonto.tls=true
+        - traefik.http.routers.dgodonto.tls.certresolver=letsencryptresolver
         - traefik.http.services.dgodonto.loadbalancer.server.port=80
 
     restart: unless-stopped
 
 
 networks:
-  dgodontoNet:
+  aquilaNet:
     external: true

@@ -170,13 +170,6 @@ p { text-wrap: pretty; }
   }
   .hero__content { align-self: center; padding-block: 3rem; }
   .hero__media { aspect-ratio: auto; border-radius: 0 0 0 var(--r); position: relative; }
-  /* Degradê na borda esquerda: a foto se funde com o fundo do texto.
-     Mais estreito em telas menores, onde a pessoa fica perto da borda. */
-  .hero__media::after {
-    content: ""; position: absolute; inset: 0 auto 0 0; pointer-events: none;
-    width: clamp(56px, 20vw - 110px, 200px);
-    background: linear-gradient(to right, var(--bg), rgb(255 255 255 / 0.8) 25%, rgb(255 255 255 / 0.35) 60%, rgb(255 255 255 / 0));
-  }
 }
 
 /* ---------- Credenciais ---------- */
