@@ -46,6 +46,23 @@
 
   document.getElementById("anoAtual").textContent = String(new Date().getFullYear());
 
+  /* Carrossel de avaliações: setas rolam um card por vez */
+  var quotes = document.getElementById("quotes");
+  var qBtns = document.querySelectorAll(".quotes__btn");
+  function updateQBtns() {
+    var max = quotes.scrollWidth - quotes.clientWidth - 2;
+    qBtns[0].disabled = quotes.scrollLeft <= 2;
+    qBtns[1].disabled = quotes.scrollLeft >= max;
+  }
+  qBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var step = quotes.firstElementChild.offsetWidth + 16;
+      quotes.scrollBy({ left: step * Number(btn.dataset.dir), behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
+  quotes.addEventListener("scroll", updateQBtns, { passive: true });
+  updateQBtns();
+
   /* Revelação ao rolar. .reveal só some via CSS com a classe "js"
      (ver <head>), então se este script falhar o conteúdo fica visível. */
   var revealEls = document.querySelectorAll(".reveal");
