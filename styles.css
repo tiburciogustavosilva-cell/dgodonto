@@ -112,6 +112,14 @@ p { text-wrap: pretty; }
 
 .nav__toggle { display: none; }
 
+/* Desktop: logo | menu centralizado na página | botão */
+@media (min-width: 1024px) {
+  .header__inner { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .logo { justify-self: start; }
+  .nav { margin-left: 0; }
+  .header__cta { justify-self: end; }
+}
+
 @media (max-width: 1023px) {
   .header__inner { gap: 0.75rem; }
   .header__cta { margin-left: auto; }
@@ -161,7 +169,14 @@ p { text-wrap: pretty; }
     min-height: clamp(540px, calc(100dvh - var(--header-h)), 780px);
   }
   .hero__content { align-self: center; padding-block: 3rem; }
-  .hero__media { aspect-ratio: auto; border-radius: 0 0 0 var(--r); }
+  .hero__media { aspect-ratio: auto; border-radius: 0 0 0 var(--r); position: relative; }
+  /* Degradê na borda esquerda: a foto se funde com o fundo do texto.
+     Mais estreito em telas menores, onde a pessoa fica perto da borda. */
+  .hero__media::after {
+    content: ""; position: absolute; inset: 0 auto 0 0; pointer-events: none;
+    width: clamp(56px, 20vw - 110px, 200px);
+    background: linear-gradient(to right, var(--bg), rgb(255 255 255 / 0.8) 25%, rgb(255 255 255 / 0.35) 60%, rgb(255 255 255 / 0));
+  }
 }
 
 /* ---------- Credenciais ---------- */
@@ -315,10 +330,11 @@ p { text-wrap: pretty; }
 .location address { margin-top: 1rem; font-style: normal; color: var(--ink-soft); }
 .location address strong { color: var(--ink); font-weight: 500; }
 .location__actions { margin-top: 1.25rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-.location__actions .btn--primary { grid-column: 1 / -1; }
 @media (min-width: 900px) {
-  .location > .container { position: absolute; inset: auto 0 2.5rem; left: 50%; translate: -50% 0; pointer-events: none; }
-  .location__card { max-width: 400px; margin-top: 0; pointer-events: auto; }
+  /* Card preso no canto superior esquerdo do mapa, colado na borda da tela */
+  .location iframe { height: clamp(440px, 60vh, 560px); }
+  .location > .container { position: absolute; top: 0; left: 0; width: auto; margin: 0; }
+  .location__card { max-width: 400px; margin-top: 0; border-radius: 0 0 var(--r) 0; }
 }
 
 /* ---------- CTA final ---------- */
@@ -427,3 +443,21 @@ p { text-wrap: pretty; }
 @keyframes ping { from { opacity: 0.8; transform: scale(1); } to { opacity: 0; transform: scale(1.35); } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
 @keyframes unveil { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+/* ---------- Cursor ----------
+   Bolinha dourada (cor da logo) no lugar da seta, só para mouse.
+   Sobre links e botões vira um círculo maior. Contorno branco para
+   continuar visível em cima dos botões dourados. Fica no fim do arquivo
+   para vencer os "cursor: pointer" das seções acima. */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23b6932f' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto;
+  }
+  a, button, summary, label, [role="button"],
+  .btn, .nav__toggle, .quotes__btn, .faq__list summary {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='15' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='13.5' fill='%23b6932f' fill-opacity='0.22' stroke='%23b6932f' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23b6932f' stroke='white' stroke-width='1'/%3E%3C/svg%3E") 16 16, pointer;
+  }
+  button:disabled, .quotes__btn:disabled {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23b6932f' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, default;
+  }
+}

@@ -132,8 +132,7 @@
       .cta__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 
       /* ---------- Atalhos (ícones) ---------- */
-      .shortcuts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-      .shortcuts a { display: grid; justify-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--ink-soft); }
+      .shortcuts { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.5rem; }      .shortcuts a { display: grid; justify-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--ink-soft); }
       .shortcuts__ico {
         width: 46px; height: 46px; border-radius: 50%;
         display: grid; place-items: center; background: var(--bg-alt); color: var(--accent);
@@ -224,13 +223,13 @@
             <span class="shortcuts__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
             Site
           </a>
-          <a data-link="maps" target="_blank" rel="noopener noreferrer">
+          <a data-link="mapa" id="linkMapa" target="_blank" rel="noopener noreferrer">
             <span class="shortcuts__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            Maps
+            Mapa
           </a>
-          <a data-link="waze" target="_blank" rel="noopener noreferrer">
-            <span class="shortcuts__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span>
-            Waze
+          <a data-link="facebook" id="linkFacebook" target="_blank" rel="noopener noreferrer">
+            <span class="shortcuts__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+            Facebook
           </a>
         </nav>
 
@@ -261,20 +260,34 @@
           nome: "DG Odontologia",
           whatsapp: "556181386671",
           instagram: "dgodontodf",
+          facebook: "",   // TODO: link completo da página (https://www.facebook.com/...). Vazio = abre a busca no Facebook
           endereco: "Edifício Jaime Leal - Asa Norte, Brasília - DF",
           mensagem: "Olá! Vim pelo cartão digital e gostaria de agendar uma consulta."
         };
 
         var end = encodeURIComponent(CLINICA.endereco);
+
+        /* Mapa: um link só, e o aparelho escolhe o app.
+           Android: "geo:" abre a lista de apps de mapa instalados (Google Maps, Waze...).
+           iPhone/iPad: abre o app de mapas do sistema.
+           Computador: Google Maps no navegador. */
+        var ua = navigator.userAgent;
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        var mapa = isAndroid ? "geo:0,0?q=" + end
+          : isIOS ? "https://maps.apple.com/?q=" + end
+          : "https://www.google.com/maps/search/?api=1&query=" + end;
+
         var links = {
           whatsapp: "https://wa.me/" + CLINICA.whatsapp + "?text=" + encodeURIComponent(CLINICA.mensagem),
           instagram: "https://www.instagram.com/" + CLINICA.instagram + "/",
-          maps: "https://www.google.com/maps/search/?api=1&query=" + end,
-          waze: "https://waze.com/ul?q=" + end + "&navigate=yes"
+          facebook: CLINICA.facebook || "https://www.facebook.com/search/top?q=" + encodeURIComponent(CLINICA.nome + " Brasília"),
+          mapa: mapa
         };
 
         document.querySelectorAll("[data-link]").forEach(function (el) { el.href = links[el.dataset.link]; });
-        document.getElementById("anoAtual").textContent = String(new Date().getFullYear());
+        /* No celular o mapa abre direto no app; sem nova aba em branco */
+        if (isAndroid || isIOS) document.getElementById("linkMapa").removeAttribute("target");        document.getElementById("anoAtual").textContent = String(new Date().getFullYear());
 
         var toastEl = document.getElementById("toast");
         var toastTimer;
